@@ -1,8 +1,8 @@
 "use client";
 
-import axios from "axios";
-import { ChangeEvent, useEffect, useState } from "react";
-import { BsSearch } from 'react-icons/bs'
+
+import { useState } from "react";
+
 import Image from "next/image";
 import { Input } from "./component/Input";
 import { Current } from "./component/Current";
@@ -12,13 +12,13 @@ import { WeatherDetails } from "./component/WeatherDetails";
 export default function Home() {
 
 
-  const [search, setSearch] = useState('')
+ 
 
   const [city, setCity] = useState('')
 
-  const [weather, setWeather] = useState({})
+  const [weather, setWeather] = useState<any>({})
 
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
   const [error, setError] = useState('')
 
