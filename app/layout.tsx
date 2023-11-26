@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 
-import './globals.css' 
+import './globals.css'
 
-import {Roboto} from 'next/font/google'
+import { Roboto } from 'next/font/google'
+import Head from 'next/head'
 
 
 
@@ -24,6 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+      </Head>
+
       <body className={roboto.className} >{children}</body>
     </html>
   )
