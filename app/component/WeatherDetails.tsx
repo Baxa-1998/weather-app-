@@ -33,7 +33,7 @@ export const WeatherDetails = ({ weather }: WeatherDetailsProps) => {
   return (
     <div className='p-12 z-[2]'>
       <h1 className='mb-4 text-2xl z-[5] text-white'>Weather Details</h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-white'>
 
         <div className='bg-white/40 flex p-4 items-center justify-center gap-6 rounded-xl'>
           <div className='text-2xl'>

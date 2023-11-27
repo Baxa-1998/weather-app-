@@ -25,5 +25,10 @@
   overflow: hidden;
 }
 
+.img{ 
+  position: fixed !important; 
+  object-fit: cover;
+}
+
 
 

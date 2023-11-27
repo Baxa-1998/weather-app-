@@ -25,27 +25,57 @@ export default function Home() {
   const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&days=7&aqi=yes&alerts=yes`
 
 
-  const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      try {
-        const response = await fetch(url)
-        if (!response.ok) {
-          throw new Error();
+  const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement> ) => {
+   
+    
+  
+
+
+      if(e.key === 'Enter'){
+        e.preventDefault()
+        try {
+          const response = await fetch(url)
+          if (!response.ok) {
+            throw new Error();
+          }
+          const data = await response.json();
+          setWeather(data);
+          setCity('')
+          setError('')
+        } catch (error) {
+          setError("City not found")
+          setWeather('')
         }
-        const data = await response.json();
-        setWeather(data);
-        setCity('')
-        setError('')
-      } catch (error) {
-        setError("City not found")
-        setWeather('')
+        
       }
 
-    }
+   
 
 
   }
+
+
+  const handleSearchKey = async (e: React.MouseEvent<HTMLDivElement>) =>{
+    e.preventDefault()
+    try {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error();
+      }
+      const data = await response.json();
+      setWeather(data);
+      setCity('')
+      setError('')
+    } catch (error) {
+      setError("City not found")
+      setWeather('')
+    }
+    
+
+  } 
+
+
+
 
 
   // const url2 = `api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=7&appid=${}`
@@ -90,11 +120,11 @@ export default function Home() {
   return (
     <div className="h-fit">
 
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-[1]">
+      <div className="fixed top-0 left-0 right-0 bottom-0 bg-black/40 z-[1]">
       </div>
-      <Image className="object-cover" src='/background.jpg' alt="back" layout="fill" />
+      <Image className="img" src='/background.jpg' alt="back" layout="fill" />
       <div className="relative flex flex-col md:flex-row items-center justify-between p-12">
-        <Input handleSearch={handleSearch} setCity={setCity} />
+        <Input handleSearchKey={handleSearchKey}  handleSearch={handleSearch} setCity={setCity} />
 
         <h1 className="mb-8 md:mb-0 order-1 py-2 px-4 rounded-xl font-bold text-white z-[2] text-[22px]">Weather App.</h1>
 
