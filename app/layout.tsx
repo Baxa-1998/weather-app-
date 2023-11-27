@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
       </Head>
 
       <body className={roboto.className} >{children}</body>

@@ -22,7 +22,7 @@ export default function Home() {
 
   const [error, setError] = useState('')
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&days=7&aqi=yes&alerts=yes`
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&days=7&aqi=yes&alerts=yes`
 
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
